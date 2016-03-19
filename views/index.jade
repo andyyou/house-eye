@@ -1,0 +1,44 @@
+html
+  head
+    title EyeHouse
+    link(href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css', rel='stylesheet')
+    link(href='base.css', rel='stylesheet')
+  body
+    div.navbar.navbar-default
+      div.container
+        div.navbar-header
+          button(type="button", class="navbar-toggle collapsed", data-toggle="collapse")
+          a(href="#", class="navbar-brand") EyeHouse
+        div(id="navbar", class="collapse navbar-collapse")
+          ul(class="nav navbar-nav")
+            li 
+              a(href="#") Heros
+    div.container
+      div.row
+        div.col-md-12
+          div(class="keys")
+            button(id="btn-l") 左
+            button(id="btn-r") 右
+            button(id="btn-s") 停
+  script(src="//code.jquery.com/jquery-1.12.0.min.js")
+  script(src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js")
+  script.
+    $(function () {
+      $('#btn-r').on('click', function () {
+        $.post('/r', function (data) {
+          console.log(data);
+        });
+      });
+      
+      $('#btn-l').on('click', function () {
+        $.post('/l', function (data) {
+          console.log(data);
+        });
+      });
+      
+      $('#btn-s').on('click', function () {
+        $.post('/stop', function (data) {
+          console.log(data);
+        });
+      });
+    });
